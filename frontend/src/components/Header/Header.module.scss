@@ -1,0 +1,25 @@
+
+.header {
+  background-color: var(--primary-clr);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+
+  .header__themeToggle {
+    background-color: var(--text-clr);
+    border-radius: 50%;
+    max-width: 50px;
+    max-height: 50px;
+    aspect-ratio: 1 / 1;
+    border: none;
+    padding: none;
+    transition: scale 0.2s var(--btn-easing), background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .header__themeToggle:active {
+    scale: 0.9;
+    filter: blur(1.5px)
+  }
+}

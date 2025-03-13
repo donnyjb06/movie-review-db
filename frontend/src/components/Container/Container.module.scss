@@ -1,0 +1,21 @@
+@use "../../styles/utility/mixins";
+
+.container {
+  --btn-text-clr: #e5e7eb;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @include mixins.br-bs;
+}
+
+@media (max-width: 450px) {
+  .form {
+    padding: 14px;
+    gap: 10px;
+
+    .form__submitBtn {
+      align-self: stretch;
+    }
+  }
+}

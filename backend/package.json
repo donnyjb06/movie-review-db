@@ -5,16 +5,18 @@
   "license": "ISC",
   "author": "",
   "type": "module",
-  "main": "app.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "start": "nodemon ./dist/index.js"
+    "start": "nodemon ./dist/server.js"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "nodemon": "^3.1.9",
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.2",
     "uuid": "^11.1.0"
   }

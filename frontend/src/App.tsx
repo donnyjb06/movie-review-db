@@ -5,6 +5,7 @@ import Main from "./components/Main/Main";
 import Form from "./components/Form/Form";
 import Container from "./components/Container/Container";
 import InputGroup from "./components/Input/InputGroup";
+import Star from "./components/Star/Star";
 
 const App: React.FunctionComponent = () => {
   return (
@@ -32,7 +33,7 @@ const App: React.FunctionComponent = () => {
               isTextArea={true}
             />
 
-
+            <Star starValue={3} selectedStarValue={4} size="1.3rem"/>
           </Form>
         </Container>
       </Main>

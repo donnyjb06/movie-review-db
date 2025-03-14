@@ -1,0 +1,9 @@
+.starFormGroup {
+  padding: 0;
+  display: flex;
+  border: none;
+
+  .starFormGroup__star {
+    transition: 0.3s ease-in-out;
+  }
+}

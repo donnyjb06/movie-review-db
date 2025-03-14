@@ -1,4 +1,4 @@
-import { reviewDataFilePath } from "config/config";
+import { reviewDataFilePath } from "../config/config.js";
 import { readFile, writeFile } from "node:fs/promises";
 import { Review } from "../types/review";
 

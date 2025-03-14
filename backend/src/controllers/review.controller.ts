@@ -2,11 +2,11 @@ import {
   writeAllReviews,
   getAllReviews,
   getReviewIndexById,
-} from "models/review.model";
+} from "../models/review.model.js";
 import { Response, Request } from "express";
 import { Review } from "types/review";
 import { v4 as uuidv4 } from "uuid";
-import { validateReview } from "validations/review.validation";
+import { validateReview } from "../validations/review.validation.js";
 
 export const getReviews = async (req: Request, res: Response) => {
   try {

@@ -29,7 +29,7 @@ const StarFormGroup: FC = () => {
           starValue={value}
           selectedStarValue={selectedStarValue}
           size="1.5rem"
-          name="form"
+          name="starRating"
           className={styles.starFormGroup__star}
           onChange={() => handleStarChange(value)}
           hoveredStarValue={hoveredStarValue}

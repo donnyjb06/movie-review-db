@@ -1,5 +1,5 @@
 import Express from "express"
-import { getReviews, createNewReview, updateReviewProperty } from "controllers/review.controller"
+import { getReviews, createNewReview, updateReviewProperty } from "../controllers/review.controller.js"
 
 const reviewRoutes = Express.Router()
 

@@ -33,7 +33,7 @@ const Star: FC<StarProps> = ({
     (<label onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <input
         type="radio"
-        name={`star-${name}`}
+        name={name}
         value={starValue}
         style={{ display: "none"}} 
         onChange={onChange}

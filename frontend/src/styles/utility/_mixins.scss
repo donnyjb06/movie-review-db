@@ -6,3 +6,12 @@
   border-radius: 8px;
   transition: 0.3s ease-in-out;
 }
+
+@mixin input {
+  padding: 7px 15px;
+  background-color: var(--bg-clr);
+  border: 1px solid var(--surface-clr);
+  border-radius: 6px;
+  transition: 0.3s ease-in-out;
+  font-weight: 400;
+}

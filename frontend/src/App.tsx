@@ -14,8 +14,25 @@ const App: React.FunctionComponent = () => {
         <Container>
           <Form submitBtnText="Submit Review">
             <h3>Add a movie review</h3>
-            <InputGroup labelText="Title" inputType="text" inputName="title"/>
-            <InputGroup labelText="Genre" inputType="text" inputName="title"/>
+            <InputGroup
+              labelText="Title"
+              inputType="text"
+              inputName="title"
+              isTextArea={false}
+            />
+            <InputGroup
+              labelText="Genre"
+              inputType="text"
+              inputName="title"
+              isTextArea={false}
+            />
+            <InputGroup
+              labelText="Review"
+              inputName="title"
+              isTextArea={true}
+            />
+
+
           </Form>
         </Container>
       </Main>

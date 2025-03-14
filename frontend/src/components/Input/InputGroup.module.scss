@@ -1,0 +1,21 @@
+@use "../../styles/utility/mixins";
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  gap: 5px;
+
+  .inputGroup__input {
+    @include mixins.input;
+  }
+
+  .inputGroup__input:focus {
+    outline: none;
+    border-color: var(--primary-clr);
+  }
+
+  .inputGroup__input:is(textarea) {
+    field-sizing: content;
+  }
+}

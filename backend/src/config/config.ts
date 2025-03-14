@@ -1,7 +1,10 @@
 import { dirname, join } from "node:path";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
 
-const __dirname = dirname(pathToFileURL(import.meta.url).toString());
-export const reviewDataFilePath = join(__dirname, "../data/review-data.json");
+// Convert import.meta.url to a file path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const reviewDataFilePath = join(__dirname, "../../data/review-data.json");
 
 export const PORT = 5000;

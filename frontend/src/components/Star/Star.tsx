@@ -5,7 +5,12 @@ interface StarProps {
   starValue: number;
   selectedStarValue: number;
   size: string;
-  className: string;
+  className?: string;
+  name?: string;
+  onChange?: () => void;
+  hoveredStarValue?: number | null;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const Star: FC<StarProps> = ({
@@ -13,24 +18,31 @@ const Star: FC<StarProps> = ({
   selectedStarValue,
   size,
   className,
+  name,
+  onChange,
+  hoveredStarValue,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
-  const isStarHighlighted = starValue <= selectedStarValue;
-  const starColor = isStarHighlighted ? "var(--star-color)" : "initial";
-  return (
-    <label>
+  const isStarHighlighted =
+    starValue <= (hoveredStarValue ?? selectedStarValue);
+  const starColor = isStarHighlighted
+    ? "var(--star-gold)"
+    : "var(--surface-clr)";
+  return name ?    
+    (<label onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <input
         type="radio"
-        name="star"
+        name={`star-${name}`}
         value={starValue}
-        style={{ display: "none" }}
+        style={{ display: "none"}} 
+        onChange={onChange}
+        checked={starValue === selectedStarValue}
       />
-      <FaRegStar
-        size={size}
-        color={starColor}
-        className={className}
-      />
-    </label>
-  );
+      <FaRegStar size={size} color={starColor} className={className} style={{transition: "0.3s ease-in-out"}}/>
+    </label>) :
+    (<FaRegStar size={size} color={starColor} className={className}/>)
+  
 };
 
 export default Star;

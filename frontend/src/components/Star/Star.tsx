@@ -5,10 +5,17 @@ interface StarProps {
   starValue: number;
   selectedStarValue: number;
   size: string;
+  className: string;
 }
 
-const Star: FC<StarProps> = ({ starValue, selectedStarValue, size }) => {
+const Star: FC<StarProps> = ({
+  starValue,
+  selectedStarValue,
+  size,
+  className,
+}) => {
   const isStarHighlighted = starValue <= selectedStarValue;
+  const starColor = isStarHighlighted ? "var(--star-color)" : "initial";
   return (
     <label>
       <input
@@ -19,7 +26,8 @@ const Star: FC<StarProps> = ({ starValue, selectedStarValue, size }) => {
       />
       <FaRegStar
         size={size}
-        color={isStarHighlighted ? "var(--star-gold)" : "var(--surface-clr)"}
+        color={starColor}
+        className={className}
       />
     </label>
   );

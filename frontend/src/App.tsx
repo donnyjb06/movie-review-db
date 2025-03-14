@@ -12,7 +12,11 @@ const App: React.FunctionComponent = () => {
       <Header />
       <Main>
         <Container>
-          <Form submitBtnText="Submit Review"></Form>
+          <Form submitBtnText="Submit Review">
+            <h3>Add a movie review</h3>
+            <InputGroup labelText="Title" inputType="text" inputName="title"/>
+            <InputGroup labelText="Genre" inputType="text" inputName="title"/>
+          </Form>
         </Container>
       </Main>
     </ThemeContextProvider>

@@ -17,5 +17,8 @@
 
   .inputGroup__input:is(textarea) {
     field-sizing: content;
+    resize: none;
+    overflow: hidden;
+    min-height: 5rem;
   }
 }

@@ -23,19 +23,17 @@ const ReviewCard: React.FunctionComponent<ReviewCardProps> = ({ review }) => {
 
       <div className="review-card__ratings">
         <div className="review-card__star-rating">
-          {[1, 2, 3, 4, 5].map((number) => {
-            return (
-              <Star
-                starValue={number}
-                selectedStarValue={userRating}
-                size="1.5rem"
-              />
-            );
-          })}
+          {[1, 2, 3, 4, 5].map((number) => (
+            <Star
+              key={number}
+              starValue={number}
+              selectedStarValue={userRating}
+              size="1.5rem"
+            />
+          ))}
         </div>
         <span className="review-card__number-rating">
-          <span className="user-review__number-rating 
-                           user-review__number-rating--accent">
+          <span className="user-review__number-rating user-review__number-rating--accent">
             {userRating}
           </span>
           /5

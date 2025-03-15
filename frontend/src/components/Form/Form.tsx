@@ -5,6 +5,7 @@ import { useQuery } from "../../helpers/hooks/useQuery";
 import React from "react";
 import { FetchFunction } from "../../helpers/types/fetchfunction";
 import { ReviewFormData } from "../../helpers/types/ReviewFormData";
+import { useReviewsContext } from "../../helpers/hooks/useReviewContext";
 
 
 interface FormProps {
@@ -14,6 +15,7 @@ interface FormProps {
 }
 
 const Form: FC<FormProps> = ({ children, submitBtnText, submitCallback }) => {
+  const {cacheNewReview} = useReviewsContext();
   const [isLoading, fetchResponse] = useQuery();
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -25,7 +27,8 @@ const Form: FC<FormProps> = ({ children, submitBtnText, submitCallback }) => {
       formDataObj[key] = value;
     })
   
-    fetchResponse(submitCallback, formDataObj)
+    const response = await fetchResponse(submitCallback, formDataObj)
+    cacheNewReview(response)
   };
 
   return (

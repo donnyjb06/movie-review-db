@@ -17,6 +17,9 @@
     color: var(--btn-text-clr);
     transition: 0.3s var(--btn-easing);
     cursor: pointer;
+    display: flex;
+    gap: 15px;
+    align-items: center;
   }
 
   .form__submitBtn:hover {

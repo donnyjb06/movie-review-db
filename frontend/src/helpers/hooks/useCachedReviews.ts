@@ -2,7 +2,7 @@ import React from "react";
 import { Review } from "../types/review";
 
 export const useCachedReviews = (requestReviews: () => Promise<Review[]>) => {
-  const [cachedReviews, setCachedReviews] = React.useState<Review[]>([])
+  const [cachedReviews, setCachedReviews] = React.useState<Review[]>([] as Review[])
 
   React.useEffect(() => {
     const fetchReviews = async () => {

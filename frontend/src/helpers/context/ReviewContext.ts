@@ -6,9 +6,8 @@ interface ReviewsContextType {
   getCachedReviews: () => Review[];
   cacheNewReview: (newReview: Review) => void;
   sortFilteredData: Review[];
-  handleSortOrderChange: (event?: ReactMouseEvent) => void;
-  handleFilterChange: (event: ReactMouseEvent) => void;
+  handleSortOrderChange: (event?: ReactMouseEvent<HTMLButtonElement>) => void;
+  handleFilterChange: (event?: ReactMouseEvent<HTMLButtonElement>) => void;
 }
 
 export const ReviewsContext = createContext<ReviewsContextType | null>(null);
-

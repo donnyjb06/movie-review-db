@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, MouseEvent as ReactMouseEvent } from "react";
 import { Review } from "../types/review";
 
 interface ReviewsContextType {
@@ -6,8 +6,8 @@ interface ReviewsContextType {
   getCachedReviews: () => Review[];
   cacheNewReview: (newReview: Review) => void;
   sortFilteredData: Review[];
-  handleSortOrderChange: (event: MouseEvent) => void;
-  handleFilterChange: (event: MouseEvent) => void;
+  handleSortOrderChange: (event?: ReactMouseEvent) => void;
+  handleFilterChange: (event: ReactMouseEvent) => void;
 }
 
 export const ReviewsContext = createContext<ReviewsContextType | null>(null);

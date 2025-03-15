@@ -7,31 +7,31 @@ import { FetchFunction } from "../../helpers/types/fetchfunction";
 import { ReviewFormData } from "../../helpers/types/ReviewFormData";
 import { useReviewsContext } from "../../helpers/hooks/useReviewContext";
 
-
 interface FormProps {
   children: React.ReactNode;
   submitBtnText: string;
-  submitCallback: FetchFunction
+  submitCallback: FetchFunction;
 }
 
 const Form: FC<FormProps> = ({ children, submitBtnText, submitCallback }) => {
-  const {cacheNewReview} = useReviewsContext();
+  const { cacheNewReview } = useReviewsContext();
   const [isLoading, fetchResponse] = useQuery();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget as HTMLFormElement);
     const formDataObj: ReviewFormData = {};
-  
+
     formData.forEach((value, key) => {
-      if (key === "starRating") {
-        formDataObj[key] = parseInt(value as string)
+      if (key === "userRating") {
+        formDataObj.userRating = parseInt(value as string);
+      } else {
+        formDataObj[key] = value;
       }
-      formDataObj[key] = value;
-    })
-  
-    const response = await fetchResponse(submitCallback, formDataObj)
-    cacheNewReview(response)
+    });
+
+    const response = await fetchResponse(submitCallback, formDataObj);
+    cacheNewReview(response);
   };
 
   return (
@@ -39,7 +39,7 @@ const Form: FC<FormProps> = ({ children, submitBtnText, submitCallback }) => {
       {children}
       <button className={styles.form__submitBtn}>
         {submitBtnText}
-        {isLoading ? <TailSpin width={15} height={15} color="#FFFFFF"/> : null}
+        {isLoading ? <TailSpin width={15} height={15} color="#FFFFFF" /> : null}
       </button>
     </form>
   );

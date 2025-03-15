@@ -1,8 +1,17 @@
 import React from "react";
 import { Review } from "../types/review";
 
-export const useCachedReviews = (requestReviews: () => Review[]) => {
-  const [cachedReviews, setCachedReviews] = React.useState<Review[]>(() => requestReviews())
+export const useCachedReviews = (requestReviews: () => Promise<Review[]>) => {
+  const [cachedReviews, setCachedReviews] = React.useState<Review[]>([])
+
+  React.useEffect(() => {
+    const fetchReviews = async () => {
+      const reviews = await requestReviews();
+      setCachedReviews(reviews)
+    }
+
+    fetchReviews()
+  }, [requestReviews])
 
   React.useEffect(() => {
     updateSessionStorage()
@@ -14,7 +23,7 @@ export const useCachedReviews = (requestReviews: () => Review[]) => {
 
   const getCachedReviews = () => {
     const reviewsInStorage = window.sessionStorage.getItem("reviews");
-    return reviewsInStorage ? JSON.parse(reviewsInStorage) : [];
+    return reviewsInStorage ? JSON.parse(reviewsInStorage) as Review[] : [] as Review[];
   }
 
   const cacheNewReview = (newReview: Review) => {
@@ -34,6 +43,6 @@ export const useCachedReviews = (requestReviews: () => Review[]) => {
     setCachedReviews(newCachedReviews);
   }
 
-  return [getCachedReviews, cacheNewReview, deleteReviewFromCache] as const;
+  return [getCachedReviews, cacheNewReview, deleteReviewFromCache, cachedReviews] as const;
 }
 

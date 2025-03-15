@@ -34,32 +34,21 @@ export const useFilterSort = (initialData: Review[]) => {
     return updatedData;
   }, [sortOrder, filter, initialData]);
 
-  const handleSortOrderChange = (event: ReactMouseEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLButtonElement;
+  const handleSortOrderChange = (
+    event?: ReactMouseEvent<HTMLButtonElement>
+  ) => {
+    const target = event?.target as HTMLButtonElement;
     const newSortOrder: SortOrder = target.dataset.filterSortValue as SortOrder;
-
-    setSortOrder(prevSortOrder => {
-      if (prevSortOrder === newSortOrder) {
-        return null
-      }
-
-      return newSortOrder
-    });
-
+    setSortOrder(newSortOrder);
   };
 
-  const handleFilterChange = (event: ReactMouseEvent<HTMLButtonElement>) => {
-    const target = event.target as HTMLButtonElement;
+  const handleFilterChange = (event?: ReactMouseEvent<HTMLButtonElement>) => {
+    const target = event?.target as HTMLButtonElement;
     const newFilter: FilterType = parseInt(
       target.dataset.filterSortValue as string,
       10
     ) as FilterType;
-    setFilter(prevFilter => {
-      if (prevFilter === newFilter) {
-        return null
-      }
-      return newFilter
-    });
+    setFilter(newFilter);
   };
 
   return { sortFilteredData, handleSortOrderChange, handleFilterChange };

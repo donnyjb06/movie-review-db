@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent as ReactMouseEvent } from "react";
 import { Review } from "../types/review";
 import { SortOrder, FilterType } from "../types/FilterSort";
 
@@ -34,20 +34,32 @@ export const useFilterSort = (initialData: Review[]) => {
     return updatedData;
   }, [sortOrder, filter, initialData]);
 
-  const handleSortOrderChange = (event: MouseEvent) => {
+  const handleSortOrderChange = (event: ReactMouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLButtonElement;
-    const newSortOrder: SortOrder = target.dataset.sortOrder as SortOrder;
+    const newSortOrder: SortOrder = target.dataset.filterSortValue as SortOrder;
 
-    setSortOrder(newSortOrder);
+    setSortOrder(prevSortOrder => {
+      if (prevSortOrder === newSortOrder) {
+        return null
+      }
+
+      return newSortOrder
+    });
+
   };
 
-  const handleFilterChange = (event: MouseEvent) => {
+  const handleFilterChange = (event: ReactMouseEvent<HTMLButtonElement>) => {
     const target = event.target as HTMLButtonElement;
     const newFilter: FilterType = parseInt(
-      target.dataset.filterType as string,
+      target.dataset.filterSortValue as string,
       10
     ) as FilterType;
-    setFilter(newFilter);
+    setFilter(prevFilter => {
+      if (prevFilter === newFilter) {
+        return null
+      }
+      return newFilter
+    });
   };
 
   return { sortFilteredData, handleSortOrderChange, handleFilterChange };

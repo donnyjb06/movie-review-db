@@ -18,11 +18,11 @@ export const getReviews = async (req: Request, res: Response) => {
 };
 
 export const createNewReview = async (req: Request, res: Response) => {
-  const { title, starRating, userReview, genre }: Review = req.body;
+  const { title, userRating, userReview, genre }: Review = req.body;
   const newReview: Review = {
     id: uuidv4(),
     title,
-    starRating,
+    userRating,
     userReview,
     genre
   }

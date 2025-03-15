@@ -5,7 +5,7 @@ export const validateReview = (review: Partial<Review>): null | string => {
     return "Title property must be a string."
   }
 
-  if (review.starRating !== undefined && typeof review.starRating !== "number") {
+  if (review.userRating !== undefined && typeof review.userRating !== "number") {
     return "Star rating must be a number between 1 and 5."
   }
 

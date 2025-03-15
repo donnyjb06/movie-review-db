@@ -1,0 +1,50 @@
+@use "../../styles/utility/mixins";
+
+.review-card {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--bg-clr);
+  @include mixins.br-bs-card;
+
+  .review-card__header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .review-card__title {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .review-card__genre {
+      font-size: 0.9rem;
+      line-height: 0;
+      color: var(--secondary-text-clr);
+    }
+  }
+
+  .review-card__ratings {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .review-card__star-rating {
+      display: flex;
+    }
+
+    .review-card__number-rating {
+      font-size: 0.9rem;
+      color: var(--secondary-text-clr);
+
+      .user-review__number-rating--accent {
+        color: var(--star-gold)
+      }
+    }
+  }
+
+  .review-card__user-review {
+    font-size: 0.95rem;
+  }
+}

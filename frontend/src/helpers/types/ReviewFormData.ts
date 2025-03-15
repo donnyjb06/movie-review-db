@@ -1,1 +1,1 @@
-export type ReviewFormData = { [key: string]: FormDataEntryValue }
+export type ReviewFormData = { [key: string]: FormDataEntryValue | number }

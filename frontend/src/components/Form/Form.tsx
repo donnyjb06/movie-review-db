@@ -24,6 +24,9 @@ const Form: FC<FormProps> = ({ children, submitBtnText, submitCallback }) => {
     const formDataObj: ReviewFormData = {};
   
     formData.forEach((value, key) => {
+      if (key === "starRating") {
+        formDataObj[key] = parseInt(value as string)
+      }
       formDataObj[key] = value;
     })
   

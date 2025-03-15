@@ -1,8 +1,8 @@
-import { Review } from "../types/review";
+import { ReviewFormData } from "../types/ReviewFormData";
 
 export const addNewReview = async (
   abortController: AbortController,
-  data: { [key: string]: FormDataEntryValue }
+  data: ReviewFormData
 ) => {
   try {
     const response = await fetch("http://localhost:5000/review", {

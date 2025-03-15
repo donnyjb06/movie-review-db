@@ -1,6 +1,4 @@
-import { Review } from "../types/Review";
-
-const requestReviews = async () => {
+export const requestReviews = async () => {
   try {
     const response = await fetch("/reviews", {
       method: "GET", 

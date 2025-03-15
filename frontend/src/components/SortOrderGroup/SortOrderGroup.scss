@@ -1,0 +1,5 @@
+@use "../../styles/utility/mixins";
+
+.sort-order-group {
+  @include mixins.btn-group;
+}

@@ -1,0 +1,5 @@
+@use "../../styles/utility/mixins";
+
+.filter-group {
+  @include mixins.btn-group;
+}

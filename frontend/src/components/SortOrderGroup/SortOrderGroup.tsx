@@ -1,4 +1,4 @@
-import { FC, MouseEvent as ReactMouseEvent } from "react";
+import { FC } from "react";
 import RoundedButton from "../RoundedButton/RoundedButton";
 import { useActiveButton } from "../../helpers/hooks/useActiveButton";
 import { useReviewsContext } from "../../helpers/hooks/useReviewContext";

@@ -9,17 +9,7 @@ import StarFormGroup from "./components/StarFormGroup/StarFormGroup";
 import { addNewReview } from "./helpers/utils/addNewReview";
 import SortFilterContainer from "./components/SortFilterContainer/SortFilterContainer";
 import ReviewProvider from "./helpers/providers/ReviewProvider";
-import ReviewCard from "./components/ReviewCard.tsx/ReviewCard";
-import { Review } from "./helpers/types/review";
 import ReviewCardGallery from "./components/ReviewCardGallery/ReviewCardGallery";
-
-const review: Review = {
-  id: "12345",
-  title: "Mock Title",
-  genre: "Mock Genre",
-  userRating: 2,
-  userReview: "This is a mock movie review."
-}
 
 const App: React.FunctionComponent = () => {
   return (

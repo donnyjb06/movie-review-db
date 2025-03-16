@@ -39,7 +39,13 @@ export const useFilterSort = (initialData: Review[]) => {
   ) => {
     const target = event?.target as HTMLButtonElement;
     const newSortOrder: SortOrder = target.dataset.filterSortValue as SortOrder;
-    setSortOrder(newSortOrder);
+    setSortOrder(prevSortOrder => {
+      if (prevSortOrder === newSortOrder) {
+        return null
+      }
+
+      return newSortOrder
+    });
   };
 
   const handleFilterChange = (event?: ReactMouseEvent<HTMLButtonElement>) => {
@@ -48,7 +54,13 @@ export const useFilterSort = (initialData: Review[]) => {
       target.dataset.filterSortValue as string,
       10
     ) as FilterType;
-    setFilter(newFilter);
+    setFilter( prevFilter => {
+      if (prevFilter === newFilter) {
+        return null
+      }
+
+      return newFilter
+    });
   };
 
   return { sortFilteredData, handleSortOrderChange, handleFilterChange };
